@@ -1,3 +1,9 @@
+""""
+Sol 1: Hash Set (Set cannot contain duplicate objects)
+Time Complexity: O(n)
+Space Complexity: O(n)
+We sacrificed a bit of memory for time.
+""""
 class Solution:
     def containsDuplicate(self, nums):
         hashset = set()
@@ -6,4 +12,19 @@ class Solution:
             if n in hashset:
                 return True
             hashset.add(n)
-        return False    
+        return False
+
+
+"""
+Sol 2: Sorting the array
+Time Complexity: O(nlogn)
+Space Conplexity: O(1)
+"""
+class Solution:
+    def containsDuplicate(self, nums):
+        nums.sort()
+
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i-1]:
+                return True
+        return False
